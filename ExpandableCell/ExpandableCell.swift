@@ -45,16 +45,12 @@ open class ExpandableCell: UITableViewCell {
 
     func open() {
         self.isOpen = true
-        UIView.animate(withDuration: 0.3) {
-            self.arrowImageView.layer.transform = CATransform3DMakeRotation(CGFloat(Double.pi), 1.0, 0.0, 0.0)
-        }
+        self.arrowImageView.layer.transform = CATransform3DMakeRotation(CGFloat(Double.pi), 1.0, 0.0, 0.0)
     }
 
     func close() {
         self.isOpen = false
-        UIView.animate(withDuration: 0.3) {
-            self.arrowImageView.layer.transform = CATransform3DMakeRotation(CGFloat(Double.pi), 0.0, 0.0, 0.0)
-        }
+        self.arrowImageView.layer.transform = CATransform3DMakeRotation(CGFloat(Double.pi), 0.0, 0.0, 0.0)
     }
 
     open func isExpanded() -> Bool {

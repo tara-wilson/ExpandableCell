@@ -27,8 +27,6 @@ struct ExpandableData {
     }
 }
 
-//print("indexPath: \(expandableDatas[i].indexPath), originalIndexPath: \(expandableDatas[i].originalIndexPath), expandedIndexPaths: \(expandableDatas[i].expandedIndexPaths)")
-
 class ExpandableProcessor {
     var expandableDatas = [ExpandableData]()
     var willRemovedIndexPaths: [IndexPath]?
@@ -36,7 +34,6 @@ class ExpandableProcessor {
     func insert(indexPath: IndexPath, expandedCells: [UITableViewCell], expandedHeights: [CGFloat]) -> Bool {
         for i in 0..<expandableDatas.count {
             let expandableData = expandableDatas[i]
-            guard expandableData.indexPath.section == indexPath.section else { return false }
             
             if expandableData.indexPath.row > indexPath.row {
                 expandableDatas[i].indexPath = IndexPath(row: expandableData.indexPath.row + expandedCells.count, section: expandableData.indexPath.section)
